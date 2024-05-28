@@ -30,7 +30,9 @@ is using a url like Netlify this tool is what you need.
    - COOLIFY_DOMAIN=coolify.example.com
    - COOLIFY_API_TOKEN=0|gEneTatetHistOkeNInKeYs&TokenS/Api
 
-6. Deploy the app
+6. This is a service so you will need to disable health checks
+
+7. Deploy the app
 
 ## Use
 
