@@ -22,7 +22,8 @@ is using a url like Netlify this tool is what you need.
    - Set a url with your domain for this service (https://coolhook.example.com)
    - Set `npm i` as install command
    - Set `npm run build` as build command
-   - Set `node ./dist/server/entry.mjs` as start command
+   - Set `npm run server` as start command
+   - Set `/dist` as Publish directory
 
 5. Add eviroment variables (Example)
 
