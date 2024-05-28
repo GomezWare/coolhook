@@ -29,7 +29,7 @@ export const GET: APIRoute = async ({ request }) => {
           statusText: "internal server error",
         });
       });
-    return new Response(JSON.stringify("Success, build in queue"));
+    return new Response(JSON.stringify("Webhook trigger sended, good luck!"));
   } catch (err) {
     return new Response(JSON.stringify(err.message), {
       status: 400,
@@ -63,7 +63,7 @@ export const POST: APIRoute = async ({ request }) => {
           statusText: "internal server error",
         });
       });
-    return new Response(JSON.stringify("Success, build in queue"));
+    return new Response(JSON.stringify("Webhook trigger sended, good luck!"));
   } catch (err) {
     return new Response(JSON.stringify(err.message), {
       status: 400,
