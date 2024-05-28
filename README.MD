@@ -29,6 +29,7 @@ is using a url like Netlify this tool is what you need.
 
    - COOLIFY_DOMAIN=coolify.example.com
    - COOLIFY_API_TOKEN=0|gEneTatetHistOkeNInKeYs&TokenS/Api
+   - GET_ROUTE_ENABLED=true   (If you want to use GET Route)
 
 6. This is a service so you will need to disable health checks
 

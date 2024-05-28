@@ -1,6 +1,10 @@
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async ({ request }) => {
+  if ((import.meta.env.GET_ROUTE_ENABLED = "true"))
+    return new Response(JSON.stringify("GET route is not enebled"), {
+      status: 200,
+    });
   try {
     const options = {
       method: "GET",
