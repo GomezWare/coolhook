@@ -1,43 +1,48 @@
 # CoolHook
 
-CoolHook is a service for call a coolify webhook of your web aplication using urlparams.
+Service to trigger Coolify webhooks via URL parameters. Useful when you can only call a callback by URL (e.g. Netlify-style).
 
-This is more insecure than default method but if the only way we have to call the webhook callback
-is using a url like Netlify this tool is what you need.
-
-[Official Coolify webhook documentation](https://coolify.io/docs/api-reference/deploy-webhook)
+[Official Coolify webhook docs](https://coolify.io/docs/api-reference/api/operations/deploy-by-tag-or-uuid)
 
 ## Install
 
-1. Add a new project to your coolify server for coolhook.
-2. Add a new resource to the project (Git public repository)
-3. Set this repository as URL `https://github.com/GomezWare/coolhook`
+1. Create a Coolify project for CoolHook.
+2. Add a resource (public Git repo) with this repository.
+3. Configure the project:
+   - **Start:** `npm run start`
+   - **Port:** 3000
+4. Add environment variables (see `.env-example`):
+   - `COOLIFY_DOMAIN` — your Coolify domain
+   - `API_TOKEN` — Coolify API token
+   - `ENABLED_METHODS` — allowed methods (e.g. `GET,POST`)
+   - `USE_HTTPS` — use HTTPS for the request (default `true`)
+5. Disable health checks (it’s a service).
+6. Deploy.
 
-   - Select Branch master
-   - Select Nixpacks as build pack
-   - Remeber running this on 80 port
+## Usage
 
-4. Configure the project
+Call the deploy endpoint with your app UUID. Use the same HTTP methods you enabled in `ENABLED_METHODS` (e.g. GET or POST).
 
-   - Set a url with your domain for this service (https://coolhook.example.com)
-   - Set `npm i` as install command
-   - Set `npm run build` as build command
-   - Set `node ./dist/server/entry.mjs` as start command
-   - Set `/dist` as Publish directory
+**URL format:**
 
-5. Add eviroment variables (Example)
+```
+https://coolhook.yourdomain.com/deploy?uuid=<YOUR_APP_UUID>
+```
 
-   - COOLIFY_DOMAIN=coolify.example.com
-   - COOLIFY_API_TOKEN=0|gEneTatetHistOkeNInKeYs&TokenS/Api
-   - GET_ROUTE_ENABLED=true   (If you want to use GET Route)
+**Query parameters:**
 
-6. This is a service so you will need to disable health checks
+| Param   | Required | Description                    |
+|---------|----------|--------------------------------|
+| `uuid`  | Yes      | Your Coolify application UUID |
+| `force` | No       | Force redeploy                |
+| `tag`   | No       | Deploy a specific tag          |
+| `pr`    | No       | Deploy a pull request          |
 
-7. Deploy the app
+**Example (GET):**
 
-## Use
+```
+https://coolhook.yourdomain.com/deploy?uuid=123d4567a800kc
+```
 
-Now the callback will be:
-`https://coolhook.example.com?uuid=yourappuuid`
+You can find your app UUID in Coolify: open your application → **Webhooks** in the sidebar.
 
-You can check your app uuid on webhooks panel.
