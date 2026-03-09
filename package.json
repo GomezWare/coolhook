@@ -1,16 +1,31 @@
 {
   "name": "coolhook",
+  "version": "1.0.0",
+  "description": "A universal webhook trigger for Coolify projects",
+  "keywords": [
+    "coolify",
+    "webhook",
+    "trigger",
+    "coolify-webhook",
+    "coolify-trigger"
+  ],
+  "homepage": "https://github.com/GomezWare/coolhook#readme",
+  "bugs": {
+    "url": "https://github.com/GomezWare/coolhook/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GomezWare/coolhook.git"
+  },
+  "license": "LGPL-2.1",
+  "author": "GomezWare <streetninjacoder@gmail.com>",
   "type": "module",
-  "version": "0.0.1",
+  "main": "server.js",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "start": "node server.js"
   },
   "dependencies": {
-    "@astrojs/node": "^8.2.5",
-    "astro": "^4.9.2"
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
   }
 }
