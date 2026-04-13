@@ -4,8 +4,11 @@ FROM node:24-alpine
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the package.json and the necesary files
-COPY package.json ./
+# Install dependencies (express, dotenv, etc.)
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+
+# Application source
 COPY server.js ./
 COPY src/ ./src/
 
